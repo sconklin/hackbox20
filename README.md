@@ -4,7 +4,7 @@
 
 [Hackerboxes is here](https://hackerboxes.com/)
 
-[More information about this box is here])(http://www.instructables.com/id/HackerBoxes-0020-Summer-Camp/)
+[More information about this box is here](http://www.instructables.com/id/HackerBoxes-0020-Summer-Camp/)
 
 ## Arduino IDE information
 
