@@ -192,12 +192,12 @@ void BlueLEDcycle(int cycles)
 
 void beep(int tone, int duration)
 {
-  for (long i = 0; i < duration * 900L; i += tone * 1)
+  for (float i = 0.0; i < float(duration/1000.0); i += (1.0/tone))
   {
     digitalWrite(buzzerPin, HIGH);
-    delayMicroseconds(tone*(.50));
+    delayMicroseconds((1000000.0/tone)*(.50));
     digitalWrite(buzzerPin, LOW);
-    delayMicroseconds(tone*(.50));
+    delayMicroseconds((1000000.0/tone)*(.50));
   }
   delay(30);
 }

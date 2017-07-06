@@ -1,10 +1,20 @@
 
-const int f = 349;
-const int gS = 415;
-const int a = 440;
-const int cH = 523;
-const int eH = 659;
-const int fH = 698;
+const int c4 = 262;
+const int c4S = 277;
+const int d4 = 294;
+const int e4F = 311;
+const int e4 = 330;
+const int f4 = 349;
+const int f4S = 370;
+const int g4 = 392;
+const int g4S = 415;
+const int a4 = 440;
+const int b4F = 466;
+const int b4 = 494;
+
+const int c5 = 523;
+const int e5 = 659;
+const int f5 = 698;
 const int e6 = 1319;
 const int g6 = 1568;
 const int a6 = 1760;
@@ -16,6 +26,8 @@ const int e7 = 2637;
 const int f7 = 2794;
 const int g7 = 3136;
 
+
+
 const int buzzerPin = 18;
  
 void setup()
@@ -26,6 +38,8 @@ void setup()
  
 void loop()
 {
+//  scale4();
+//  delay(3000);
   MarioTheme();
   delay(3000);
   ImperialMarch();
@@ -34,37 +48,54 @@ void loop()
 
 void beep(int tone, int duration)
 {
-  for (long i = 0; i < duration * 900L; i += tone * 1)
+  for (float i = 0.0; i < float(duration/1000.0); i += (1.0/tone))
   {
     digitalWrite(buzzerPin, HIGH);
-    delayMicroseconds(tone*(.50));
+    delayMicroseconds((1000000.0/tone)*(.50));
     digitalWrite(buzzerPin, LOW);
-    delayMicroseconds(tone*(.50));
+    delayMicroseconds((1000000.0/tone)*(.50));
   }
   delay(30);
 }
- 
+
+void scale4()
+{
+  beep(c4, 200);
+//  beep(c4S, 100);
+  beep(d4, 100);
+//  beep(e4F, 100);
+  beep(e4, 100);
+  beep(f4, 100);
+//  beep(f4S, 100);
+  beep(g4, 100);
+//  beep(g4S, 100);
+  beep(a4, 100);
+//  beep(b4F, 100);
+  beep(b4, 100);
+  beep(c5, 200);
+}
+
 void  ImperialMarch()
 {
-  beep(a, 500);
-  beep(a, 500);    
-  beep(a, 500);
-  beep(f, 350);
-  beep(cH, 150);  
-  beep(a, 500);
-  beep(f, 350);
-  beep(cH, 150);
-  beep(a, 650);
+  beep(a4, 500);
+  beep(a4, 500);    
+  beep(a4, 500);
+  beep(f4, 350);
+  beep(c5, 150);  
+  beep(a4, 500);
+  beep(f4, 350);
+  beep(c5, 150);
+  beep(a4, 650);
   delay(500);
-  beep(eH, 500);
-  beep(eH, 500);
-  beep(eH, 500);  
-  beep(fH, 350);
-  beep(cH, 150);
-  beep(gS, 500);
-  beep(f, 350);
-  beep(cH, 150);
-  beep(a, 650);
+  beep(e5, 500);
+  beep(e5, 500);
+  beep(e5, 500);  
+  beep(f5, 350);
+  beep(c5, 150);
+  beep(g4S, 500);
+  beep(f4, 350);
+  beep(c5, 150);
+  beep(a4, 650);
 }
 
 void  MarioTheme()
